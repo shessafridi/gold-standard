@@ -22,7 +22,10 @@
     "@orpc/zod": "^1.14.3",
     "@workspace/api-contract": "workspace:*",
     "@workspace/api-schemas": "workspace:*",
-    "hono": "^4.12.19"
+    "@workspace/db": "workspace:*",
+    "dotenv": "^17.4.2",
+    "hono": "^4.12.19",
+    "jose": "^6.2.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -1,6 +1,7 @@
 import { Hono } from 'hono';
 import { serve } from '@hono/node-server';
 import { orpcHandler } from './orpc/handle';
+import { prisma } from '@workspace/db';
 
 const app = new Hono();
 
@@ -10,6 +11,7 @@ function bootstrap() {
   app.use('/api/*', async (c, next) => {
     const { matched, response } = await orpcHandler.handle(c.req.raw, {
       prefix: '/api',
+      context: { db: prisma },
     });
 
     if (matched) return c.newResponse(response.body, response);
