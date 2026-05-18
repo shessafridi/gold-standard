@@ -1,0 +1,39 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "build": "rimraf ./dist && tsc && tsc-alias",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"**/*.{ts,tsx}\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hono/node-server": "^2.0.2",
+    "@orpc/client": "^1.14.3",
+    "@orpc/openapi": "^1.14.3",
+    "@orpc/server": "^1.14.3",
+    "@workspace/api-contract": "workspace:*",
+    "@workspace/api-schemas": "workspace:*",
+    "hono": "^4.12.19"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.12.3",
+    "eslint": "^10.3.0",
+    "globals": "^17.6.0",
+    "nodemon": "^3.1.14",
+    "prettier": "^3.7.4",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "rimraf": "^6.1.3",
+    "tsc-alias": "^1.8.17",
+    "tsx": "^4.22.1",
+    "typescript-eslint": "^8.59.2"
+  }
+}
