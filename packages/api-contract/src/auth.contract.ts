@@ -18,6 +18,8 @@ export const authContract = {
       method: 'POST',
       path: '/auth/register',
       tags: ['Authentication'],
+      description:
+        'Register a new user account with email, password, and profile details.',
     })
     .input(registerUserSchema)
     .output(messageOutputSchema),
@@ -27,6 +29,8 @@ export const authContract = {
       method: 'POST',
       path: '/auth/login',
       tags: ['Authentication'],
+      description:
+        'Authenticate a user and return an access token on successful login.',
     })
     .input(loginSchema)
     .output(loginOutputSchema),
@@ -36,6 +40,8 @@ export const authContract = {
       method: 'POST',
       path: '/auth/forgot-password',
       tags: ['Authentication'],
+      description:
+        'Initiate the password reset process by sending a reset otp to the user email.',
     })
     .input(forgotPasswordSchema)
     .output(messageOutputSchema),
@@ -45,6 +51,8 @@ export const authContract = {
       method: 'POST',
       path: '/auth/verify-reset-otp',
       tags: ['Authentication'],
+      description:
+        'Verify the password reset one-time password (OTP) sent to the user email and exchange it for a password reset token.',
     })
     .input(verifyResetOtpSchema)
     .output(verifyResetOtpOutputSchema),
@@ -54,6 +62,8 @@ export const authContract = {
       method: 'POST',
       path: '/auth/reset-password',
       tags: ['Authentication'],
+      description:
+        "Reset the user's password using a reset token obtained from the /auth/verify-reset-otp.",
     })
     .input(resetPasswordSchema)
     .output(messageOutputSchema),
@@ -63,6 +73,8 @@ export const authContract = {
       method: 'POST',
       path: '/auth/verify-email',
       tags: ['Authentication'],
+      description:
+        'Verify a user email address using the provided verification token.',
     })
     .input(verifyEmailSchema)
     .output(verifyEmailOutputSchema),
