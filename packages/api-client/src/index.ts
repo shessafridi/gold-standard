@@ -1,18 +1,25 @@
-import { createORPCClient } from '@orpc/client';
-import { RPCLink } from '@orpc/client/fetch';
+import { createORPCClient, type ClientContext } from '@orpc/client';
 import type { ContractRouterClient } from '@orpc/contract';
+import type { JsonifiedClient } from '@orpc/openapi-client';
+import {
+  OpenAPILink,
+  type OpenAPILinkOptions,
+} from '@orpc/openapi-client/fetch';
 import { createTanstackQueryUtils } from '@orpc/tanstack-query';
 import { contract } from '@workspace/api-contract';
 
-export function createClient(baseUrl: string) {
-  const link = new RPCLink({ url: `${baseUrl}/rpc` });
-  const client: ContractRouterClient<typeof contract> = createORPCClient(link);
+export type CreateClientOptions = OpenAPILinkOptions<ClientContext>;
+
+export function createClient(options: CreateClientOptions) {
+  const link = new OpenAPILink(contract, options);
+  const client: JsonifiedClient<ContractRouterClient<typeof contract>> =
+    createORPCClient(link);
 
   return client;
 }
 
-export function createQueryUtils(baseUrl: string) {
-  return createTanstackQueryUtils(createClient(baseUrl));
+export function createQueryUtils(options: CreateClientOptions) {
+  return createTanstackQueryUtils(createClient(options));
 }
 
 // Re-export the contract types so consumers don't need to
