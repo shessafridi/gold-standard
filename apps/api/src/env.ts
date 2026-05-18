@@ -10,8 +10,8 @@ const envSchema = z.object({
     .enum(['development', 'production', 'test'])
     .default('development'),
   RESEND_API_KEY: z.string().min(1),
-  FROM_EMAIL: z.email().default('noreply@vet-app.com'),
-  CONTACT_EMAIL: z.email().default('contact@vet-app.com'),
+  FROM_EMAIL: z.email().default('noreply@workspace.com'),
+  CONTACT_EMAIL: z.email().default('contact@workspace.com'),
   APP_NAME: z.string().default('Vet App'),
 });
 

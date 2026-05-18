@@ -1,0 +1,39 @@
+{
+  "name": "@workspace/auth-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch --no-clean",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "sideEffects": false,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.33.0",
+  "dependencies": {
+    "@workspace/api-client": "workspace:*",
+    "@workspace/api-schemas": "workspace:*",
+    "react": "^19.2.4"
+  },
+  "peerDependencies": {
+    "@tanstack/react-query": "^5.0.0",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@tanstack/react-query": "^5.99.0",
+    "@types/react": "^19.2.14",
+    "tsdown": "^0.22.0",
+    "zustand": "^5.0.12"
+  }
+}
