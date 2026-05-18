@@ -1,8 +1,8 @@
-import { pub } from '@/orpc';
+import { authed, pub } from '@/orpc';
 import { ORPCError } from '@orpc/client';
 
 export const postRouter = pub.post.router({
-  create: pub.post.create.handler(async ({ input, context: { db } }) => {
+  create: authed.post.create.handler(async ({ input, context: { db } }) => {
     const saved = await db.post.create({
       data: { title: input.title, content: input.content },
     });
@@ -13,6 +13,7 @@ export const postRouter = pub.post.router({
       content: saved.content ?? '',
     };
   }),
+
   getById: pub.post.getById.handler(async ({ input, context: { db } }) => {
     const id = input.id;
 

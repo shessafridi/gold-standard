@@ -7,7 +7,7 @@ export const authMiddleware = os.middleware(async ({ context, next }) => {
 
   if (!token) {
     throw new ORPCError('UNAUTHORIZED', {
-      message: 'Missing or malformed Authorization header',
+      message: 'Missing Authorization header',
     });
   }
 
