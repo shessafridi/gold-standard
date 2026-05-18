@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.100.10",
+    "@workspace/api-client": "workspace:*",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },

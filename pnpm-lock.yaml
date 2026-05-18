@@ -38,6 +38,9 @@ importers:
       '@orpc/server':
         specifier: ^1.14.3
         version: 1.14.3
+      '@orpc/zod':
+        specifier: ^1.14.3
+        version: 1.14.3(@orpc/contract@1.14.3)(@orpc/server@1.14.3)(zod@4.4.3)
       '@workspace/api-contract':
         specifier: workspace:*
         version: link:../../packages/api-contract
@@ -84,6 +87,12 @@ importers:
 
   apps/web:
     dependencies:
+      '@tanstack/react-query':
+        specifier: ^5.100.10
+        version: 5.100.10(react@19.2.6)
+      '@workspace/api-client':
+        specifier: workspace:*
+        version: link:../../packages/api-client
       react:
         specifier: ^19.2.6
         version: 19.2.6
@@ -127,6 +136,31 @@ importers:
       vite:
         specifier: ^8.0.12
         version: 8.0.13(@types/node@24.12.4)(esbuild@0.28.0)(terser@5.47.1)(tsx@4.22.1)
+
+  packages/api-client:
+    dependencies:
+      '@orpc/client':
+        specifier: ^1.14.3
+        version: 1.14.3
+      '@orpc/contract':
+        specifier: ^1.14.3
+        version: 1.14.3
+      '@orpc/tanstack-query':
+        specifier: ^1.14.3
+        version: 1.14.3(@orpc/client@1.14.3)(@tanstack/query-core@5.100.10)
+      '@workspace/api-contract':
+        specifier: workspace:*
+        version: link:../api-contract
+      '@workspace/api-schemas':
+        specifier: workspace:*
+        version: link:../api-schemas
+    devDependencies:
+      tsdown:
+        specifier: ^0.21.10
+        version: 0.21.10(typescript@6.0.3)
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
 
   packages/api-contract:
     dependencies:
@@ -522,6 +556,9 @@ packages:
   '@orpc/interop@1.14.3':
     resolution: {integrity: sha512-B8ANHAGVI8Mjw7Co0p+qBlkFG84i38WTKjR01HMkMXd6g9bHbgaqOfHcMpJMFaZzqvxBnXH4zPra2w6J8sQmhQ==}
 
+  '@orpc/json-schema@1.14.3':
+    resolution: {integrity: sha512-Qcz2PzyZG2etpfB8ywy4Upf4SaI2x6x4fA8utVQXf5GcTPWfbTVz78MDDWnNtYEXSPj1BS95HqHC0AeGvYIB+g==}
+
   '@orpc/openapi-client@1.14.3':
     resolution: {integrity: sha512-1vp+hi858XDrCwYdhONl15YKNlHtj5F5gI3dq/McRRZ45tZ9/Ma03hxzABOOcayaT1L9nX7gPxhX7l5EuRf2zw==}
 
@@ -569,6 +606,19 @@ packages:
 
   '@orpc/standard-server@1.14.3':
     resolution: {integrity: sha512-qO6xJy+S15Wx0elQeVojo3p5EgBLJDTEtElPcUF9o4ac8hrikYZJBeSg7qGgu/elCIrVbaFk/16Lu8P4qatPWg==}
+
+  '@orpc/tanstack-query@1.14.3':
+    resolution: {integrity: sha512-SRoq4zCRF65vlveFegaaVHaqmlpOxI/tHL/sdKVrELJ3zPq22sS4GZQeABIdevH25wjxWBO0gKrVaazzTtVA6Q==}
+    peerDependencies:
+      '@orpc/client': 1.14.3
+      '@tanstack/query-core': '>=5.80.2'
+
+  '@orpc/zod@1.14.3':
+    resolution: {integrity: sha512-+SIDmqfkTLCeeZVN6Cic4aWeiBqf2O9F4Vto9npqOEXT1szIpHKJtCmdZBsTOSD46LV5Tcg1emOde9eUeY2EBg==}
+    peerDependencies:
+      '@orpc/contract': 1.14.3
+      '@orpc/server': 1.14.3
+      zod: '>=3.25.0'
 
   '@oxc-project/types@0.127.0':
     resolution: {integrity: sha512-aIYXQBo4lCbO4z0R3FHeucQHpF46l2LbMdxRvqvuRuW2OxdnSkcng5B8+K12spgLDj93rtN3+J2Vac/TIO+ciQ==}
@@ -765,6 +815,14 @@ packages:
 
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
+
+  '@tanstack/query-core@5.100.10':
+    resolution: {integrity: sha512-8UR0yJR+GiQ40m3lPhUr0xbfAupe6GSQiksSBSa9SM2NjezFyxXCIA69/lz8cSoNKZLrw1/PktIyQBJcVeMi3w==}
+
+  '@tanstack/react-query@5.100.10':
+    resolution: {integrity: sha512-FLaZf2RCrA/Zgp4aiu5tG3TyasTRO7aZ99skxQpr3Hg/zXOhu6yq5FZCYQ/tRaJtM9ylnoK8tFK7PolXQadv6Q==}
+    peerDependencies:
+      react: ^18 || ^19
 
   '@turbo/darwin-64@2.9.14':
     resolution: {integrity: sha512-t7QiPflaEyBE4oayeZtSmu4mEfjgIrcNlNNl1z1dmIVPqEdtA7+CfTf8d7KXsOGPh6aNgWjKxyvQg9uGfDQF+A==}
@@ -1038,6 +1096,10 @@ packages:
   escape-string-regexp@4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
+
+  escape-string-regexp@5.0.0:
+    resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
+    engines: {node: '>=12'}
 
   eslint-plugin-react-hooks@7.1.1:
     resolution: {integrity: sha512-f2I7Gw6JbvCexzIInuSbZpfdQ44D7iqdWX01FKLvrPgqxoE7oMj8clOfto8U6vYiz4yd5oKu39rRSVOe1zRu0g==}
@@ -1832,6 +1894,9 @@ packages:
     engines: {node: '>= 8'}
     hasBin: true
 
+  wildcard-match@5.1.4:
+    resolution: {integrity: sha512-wldeCaczs8XXq7hj+5d/F38JE2r7EXgb6WQDM84RVwxy81T/sxB5e9+uZLK9Q9oNz1mlvjut+QtvgaOQFPVq/g==}
+
   word-wrap@1.2.5:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
     engines: {node: '>=0.10.0'}
@@ -2183,6 +2248,20 @@ snapshots:
 
   '@orpc/interop@1.14.3': {}
 
+  '@orpc/json-schema@1.14.3':
+    dependencies:
+      '@orpc/contract': 1.14.3
+      '@orpc/interop': 1.14.3
+      '@orpc/openapi': 1.14.3
+      '@orpc/server': 1.14.3
+      '@orpc/shared': 1.14.3
+      json-schema-typed: 8.0.2
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+      - crossws
+      - fastify
+      - ws
+
   '@orpc/openapi-client@1.14.3':
     dependencies:
       '@orpc/client': 1.14.3
@@ -2275,6 +2354,30 @@ snapshots:
       '@orpc/shared': 1.14.3
     transitivePeerDependencies:
       - '@opentelemetry/api'
+
+  '@orpc/tanstack-query@1.14.3(@orpc/client@1.14.3)(@tanstack/query-core@5.100.10)':
+    dependencies:
+      '@orpc/client': 1.14.3
+      '@orpc/shared': 1.14.3
+      '@tanstack/query-core': 5.100.10
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+
+  '@orpc/zod@1.14.3(@orpc/contract@1.14.3)(@orpc/server@1.14.3)(zod@4.4.3)':
+    dependencies:
+      '@orpc/contract': 1.14.3
+      '@orpc/json-schema': 1.14.3
+      '@orpc/openapi': 1.14.3
+      '@orpc/server': 1.14.3
+      '@orpc/shared': 1.14.3
+      escape-string-regexp: 5.0.0
+      wildcard-match: 5.1.4
+      zod: 4.4.3
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+      - crossws
+      - fastify
+      - ws
 
   '@oxc-project/types@0.127.0': {}
 
@@ -2387,6 +2490,13 @@ snapshots:
   '@rolldown/pluginutils@1.0.1': {}
 
   '@standard-schema/spec@1.1.0': {}
+
+  '@tanstack/query-core@5.100.10': {}
+
+  '@tanstack/react-query@5.100.10(react@19.2.6)':
+    dependencies:
+      '@tanstack/query-core': 5.100.10
+      react: 19.2.6
 
   '@turbo/darwin-64@2.9.14':
     optional: true
@@ -2669,6 +2779,8 @@ snapshots:
   escalade@3.2.0: {}
 
   escape-string-regexp@4.0.0: {}
+
+  escape-string-regexp@5.0.0: {}
 
   eslint-plugin-react-hooks@7.1.1(eslint@10.4.0):
     dependencies:
@@ -3348,6 +3460,8 @@ snapshots:
   which@2.0.2:
     dependencies:
       isexe: 2.0.0
+
+  wildcard-match@5.1.4: {}
 
   word-wrap@1.2.5: {}
 

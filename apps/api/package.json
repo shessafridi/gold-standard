@@ -19,6 +19,7 @@
     "@orpc/client": "^1.14.3",
     "@orpc/openapi": "^1.14.3",
     "@orpc/server": "^1.14.3",
+    "@orpc/zod": "^1.14.3",
     "@workspace/api-contract": "workspace:*",
     "@workspace/api-schemas": "workspace:*",
     "hono": "^4.12.19"

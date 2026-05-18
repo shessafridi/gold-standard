@@ -7,15 +7,12 @@ const app = new Hono();
 function bootstrap() {
   app.get('/', c => c.text('Server is running'));
 
-  app.use('/rpc/*', async (c, next) => {
+  app.use('/api/*', async (c, next) => {
     const { matched, response } = await orpcHandler.handle(c.req.raw, {
-      prefix: '/rpc',
+      prefix: '/api',
     });
 
-    if (matched) {
-      return c.newResponse(response.body, response);
-    }
-
+    if (matched) return c.newResponse(response.body, response);
     return await next();
   });
 
