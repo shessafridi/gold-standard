@@ -1,51 +1,53 @@
-import { type TransportContent } from "@/infrastructure/notifications/notifications.types"
-import type { MaybePromise } from "@/shared/types/maybe-promise"
-import { templates } from "../email/email.registry"
+import { type TransportContent } from '@/infrastructure/notifications/notifications.types';
+import type { MaybePromise } from '@/shared/types/maybe-promise';
+import { templates } from '../email/email.registry';
 
 type ChannelRenderers<T> = {
-  [K in keyof TransportContent]?: (data: T) => MaybePromise<TransportContent[K]>
-}
+  [K in keyof TransportContent]?: (
+    data: T
+  ) => MaybePromise<TransportContent[K]>;
+};
 
 type NotificationRegistry = {
-  [K in keyof NotificationData]: ChannelRenderers<NotificationData[K]>
-}
+  [K in keyof NotificationData]: ChannelRenderers<NotificationData[K]>;
+};
 
 export type NotificationData = {
-  "auth.otp": { name: string; code: string }
-  "auth.welcome": { name: string }
-  "appointments.reminder": { name: string; date: Date; doctorName: string }
-}
+  'auth.otp': { name: string; code: string };
+  'auth.welcome': { name: string };
+  'appointments.reminder': { name: string; date: Date; doctorName: string };
+};
 
 export const registry: NotificationRegistry = {
-  "auth.otp": {
-    email: (data) => templates["auth.otp"](data),
-    sms: (data) => ({
+  'auth.otp': {
+    email: data => templates['auth.otp'](data),
+    sms: data => ({
       body: `Hi ${data.name}, your verification code is ${data.code}. Valid for 10 minutes.`,
     }),
-    whatsapp: (data) => ({
+    whatsapp: data => ({
       body: `Hi ${data.name}, your verification code is ${data.code}. Valid for 10 minutes.`,
     }),
   },
 
-  "auth.welcome": {
-    email: (data) => templates["auth.welcome"](data),
-    push: (data) => ({
+  'auth.welcome': {
+    email: data => templates['auth.welcome'](data),
+    push: data => ({
       title: `Welcome, ${data.name}!`,
       body: `Your account is ready. Tap to get started.`,
     }),
   },
 
-  "appointments.reminder": {
-    email: (data) => ({
+  'appointments.reminder': {
+    email: data => ({
       subject: `Appointment reminder`,
       html: `<p>Hi ${data.name}, this is a reminder that you have an appointment with ${data.doctorName} on ${data.date.toLocaleDateString()}.</p>`,
     }),
-    sms: (data) => ({
+    sms: data => ({
       body: `Hi ${data.name}, reminder: appointment with ${data.doctorName} on ${data.date.toLocaleDateString()}.`,
     }),
-    push: (data) => ({
+    push: data => ({
       title: `Upcoming appointment`,
       body: `With ${data.doctorName} on ${data.date.toLocaleDateString()}.`,
     }),
   },
-}
+};

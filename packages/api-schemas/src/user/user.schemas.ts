@@ -13,9 +13,12 @@ export const changePasswordSchema = z.object({
 
 export const adminResetPasswordSchema = z.object({
   newPassword: passwordValidator,
+  userId: z.string(),
 });
 
-export const updateEmailSchema = z.email();
+export const updateEmailSchema = z.object({
+  newEmail: z.email(),
+});
 
 export type ChangePasswordInput = z.infer<typeof changePasswordSchema>;
 export type AdminResetPasswordInput = z.infer<typeof adminResetPasswordSchema>;

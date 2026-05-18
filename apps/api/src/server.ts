@@ -1,9 +1,9 @@
-import { Hono } from 'hono';
-import { serve } from '@hono/node-server';
-import { orpcHandler } from '@/orpc/handle';
-import { prisma } from '@workspace/db';
-import { handleServerShutdown } from '@/shared/utils/handle-server-shutdown';
 import env from '@/env';
+import { orpcHandler } from '@/orpc/handle';
+import { handleServerShutdown } from '@/shared/utils/handle-server-shutdown';
+import { serve } from '@hono/node-server';
+import { prisma } from '@workspace/db';
+import { Hono } from 'hono';
 
 const app = new Hono();
 
@@ -13,7 +13,7 @@ function bootstrap() {
   app.use('/api/*', async (c, next) => {
     const { matched, response } = await orpcHandler.handle(c.req.raw, {
       prefix: '/api',
-      context: { db: prisma },
+      context: { db: prisma, headers: c.req.raw.headers },
     });
 
     if (matched) return c.newResponse(response.body, response);

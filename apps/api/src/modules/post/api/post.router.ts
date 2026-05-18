@@ -1,8 +1,8 @@
-import { os } from '@/orpc/os';
+import { pub } from '@/orpc';
 import { ORPCError } from '@orpc/client';
 
-export const postRouter = os.post.router({
-  create: os.post.create.handler(async ({ input, context: { db } }) => {
+export const postRouter = pub.post.router({
+  create: pub.post.create.handler(async ({ input, context: { db } }) => {
     const saved = await db.post.create({
       data: { title: input.title, content: input.content },
     });
@@ -13,7 +13,7 @@ export const postRouter = os.post.router({
       content: saved.content ?? '',
     };
   }),
-  getById: os.post.getById.handler(async ({ input, context: { db } }) => {
+  getById: pub.post.getById.handler(async ({ input, context: { db } }) => {
     const id = input.id;
 
     const post = await db.post.findUnique({ where: { id } });

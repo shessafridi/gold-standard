@@ -1,14 +1,14 @@
-import { os } from '@/orpc/os';
+import { pub } from '@/orpc';
 import { authService } from '../auth.service';
 
-export const authRouter = os.auth.router({
-  registerUser: os.auth.registerUser.handler(async ({ input }) => {
+export const authRouter = pub.auth.router({
+  registerUser: pub.auth.registerUser.handler(async ({ input }) => {
     await authService.registerUser(input);
 
     return { message: `We have sent an email to ${input.email}` };
   }),
 
-  login: os.auth.login.handler(async ({ input }) => {
+  login: pub.auth.login.handler(async ({ input }) => {
     const result = await authService.loginUser(input);
 
     return {
@@ -17,7 +17,7 @@ export const authRouter = os.auth.router({
     };
   }),
 
-  verifyEmail: os.auth.verifyEmail.handler(async ({ input }) => {
+  verifyEmail: pub.auth.verifyEmail.handler(async ({ input }) => {
     const result = await authService.verifyEmail(input);
 
     return {
@@ -26,7 +26,7 @@ export const authRouter = os.auth.router({
     };
   }),
 
-  forgotPassword: os.auth.forgotPassword.handler(async ({ input }) => {
+  forgotPassword: pub.auth.forgotPassword.handler(async ({ input }) => {
     const result = await authService.forgotPassword(input);
 
     return {
@@ -34,7 +34,7 @@ export const authRouter = os.auth.router({
     };
   }),
 
-  verifyResetOtp: os.auth.verifyResetOtp.handler(async ({ input }) => {
+  verifyResetOtp: pub.auth.verifyResetOtp.handler(async ({ input }) => {
     const result = await authService.verifyResetOtp(input);
 
     return {
@@ -43,7 +43,7 @@ export const authRouter = os.auth.router({
     };
   }),
 
-  resetPassword: os.auth.resetPassword.handler(async ({ input }) => {
+  resetPassword: pub.auth.resetPassword.handler(async ({ input }) => {
     const result = await authService.resetPassword(input);
 
     return {

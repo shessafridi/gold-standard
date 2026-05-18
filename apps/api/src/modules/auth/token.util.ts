@@ -1,10 +1,9 @@
 import env from '@/env';
 import type { User } from '@workspace/db';
 import { SignJWT } from 'jose';
-import { createSecretKey } from 'crypto';
 
 export const generateAuthToken = async (user: User): Promise<string> => {
-  const secret = createSecretKey(Buffer.from(env.AUTH_SECRET));
+  const secret = new TextEncoder().encode(env.AUTH_SECRET);
 
   const token = await new SignJWT({
     email: user.email,
