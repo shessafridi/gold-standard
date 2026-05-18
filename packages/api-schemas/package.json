@@ -9,9 +9,25 @@
     "format": "prettier --write \"**/*.{ts,tsx}\""
   },
   "exports": {
+    "./auth": {
+      "import": "./dist/auth.mjs",
+      "require": "./dist/auth.cjs"
+    },
+    "./common": {
+      "import": "./dist/common.mjs",
+      "require": "./dist/common.cjs"
+    },
     "./post": {
       "import": "./dist/post.mjs",
       "require": "./dist/post.cjs"
+    },
+    "./standard": {
+      "import": "./dist/standard.mjs",
+      "require": "./dist/standard.cjs"
+    },
+    "./user": {
+      "import": "./dist/user.mjs",
+      "require": "./dist/user.cjs"
     },
     "./package.json": "./package.json"
   },

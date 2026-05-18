@@ -20,6 +20,7 @@
     "db:generate": { "cache": false },
     "db:migrate": { "cache": false },
     "db:deploy": { "cache": false },
-    "db:studio": { "cache": false }
+    "db:studio": { "cache": false },
+    "db:push": { "cache": false }
   }
 }

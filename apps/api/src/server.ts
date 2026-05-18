@@ -1,7 +1,9 @@
 import { Hono } from 'hono';
 import { serve } from '@hono/node-server';
-import { orpcHandler } from './orpc/handle';
+import { orpcHandler } from '@/orpc/handle';
 import { prisma } from '@workspace/db';
+import { handleServerShutdown } from '@/shared/utils/handle-server-shutdown';
+import env from '@/env';
 
 const app = new Hono();
 
@@ -22,23 +24,12 @@ function bootstrap() {
 
   const server = serve({
     fetch: app.fetch,
-    port: 3000,
+    port: env.PORT,
   });
   console.log('Server is running on port 3000');
 
-  process.on('SIGINT', () => {
-    server.close();
-    process.exit(0);
-  });
-  process.on('SIGTERM', () => {
-    server.close(err => {
-      if (err) {
-        console.error(err);
-        process.exit(1);
-      }
-      process.exit(0);
-    });
-  });
+  // graceful shutdown on SIGINT
+  handleServerShutdown(server);
 }
 
 bootstrap();

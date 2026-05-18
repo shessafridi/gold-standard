@@ -20,12 +20,19 @@
     "@orpc/openapi": "^1.14.3",
     "@orpc/server": "^1.14.3",
     "@orpc/zod": "^1.14.3",
+    "@react-email/ui": "^6.1.4",
     "@workspace/api-contract": "workspace:*",
     "@workspace/api-schemas": "workspace:*",
     "@workspace/db": "workspace:*",
+    "argon2": "^0.44.0",
+    "date-fns": "^4.1.0",
     "dotenv": "^17.4.2",
     "hono": "^4.12.19",
-    "jose": "^6.2.3"
+    "jose": "^6.2.3",
+    "react-email": "^6.1.4",
+    "resend": "^6.12.3",
+    "socket.io": "^4.8.3",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

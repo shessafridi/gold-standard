@@ -1,0 +1,27 @@
+enum Role {
+    USER
+    ADMIN
+}
+
+enum Gender {
+    male
+    female
+    unknown
+    other
+}
+
+model User {
+    id            String    @id @default(cuid())
+    firstName     String
+    lastName      String
+    dateOfBirth   DateTime?
+    email         String    @unique
+    emailVerified DateTime
+    image         String?
+    password      String
+    phone         String?
+    gender        Gender    @default(unknown)
+    role          Role      @default(USER)
+    createdAt     DateTime  @default(now())
+    updatedAt     DateTime  @updatedAt
+}

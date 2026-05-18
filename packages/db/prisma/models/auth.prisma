@@ -1,0 +1,19 @@
+enum VerificationTokenType {
+    VERIFY_EMAIL
+    FORGOT_PASSWORD
+    RESET_PASSWORD
+}
+
+model VerificationToken {
+    id String @id @default(cuid())
+
+    tokenHash String
+    type      VerificationTokenType
+    email     String
+
+    expiresAt DateTime
+    createdAt DateTime @default(now())
+
+    @@unique([email, type, tokenHash])
+    @@index([email, type])
+}

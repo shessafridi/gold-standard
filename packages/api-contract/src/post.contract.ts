@@ -7,12 +7,13 @@ export const postContract = {
     .route({
       method: 'POST',
       path: '/posts',
+      tags: ['Posts'],
     })
     .input(createPostSchema)
     .output(postSchema),
 
   getById: oc
-    .route({ method: 'GET', path: '/posts/{id}' })
+    .route({ method: 'GET', path: '/posts/{id}', tags: ['Posts'] })
     .input(z.object({ id: z.string() }))
     .output(postSchema),
 };
