@@ -1,4 +1,5 @@
 import { pub } from '@/orpc';
+
 import { authService } from '../auth.service';
 
 export const authRouter = pub.auth.router({

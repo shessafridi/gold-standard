@@ -1,6 +1,7 @@
-import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
+
 import { PrismaClient } from '../generated/prisma/client';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

@@ -1,3 +1,4 @@
+import type { Ref } from 'react';
 import { useMemo } from 'react';
 
 import {
@@ -14,8 +15,6 @@ import {
   ComboboxValue,
   useComboboxAnchor,
 } from './combobox';
-
-import type { Ref } from 'react';
 
 interface Props {
   value?: string[];

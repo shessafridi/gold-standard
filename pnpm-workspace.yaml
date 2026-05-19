@@ -1,11 +1,16 @@
 packages:
-  - "apps/*"
-  - "packages/*"
+  - 'apps/*'
+  - 'packages/*'
+  - 'tooling/*'
 allowBuilds:
   '@prisma/engines': true
   argon2: true
   better-sqlite3: true
   esbuild: false
-  msw: set this to true or false
+  msw: true
   prisma: true
   sharp: false
+
+publicHoistPattern:
+  - "@ianvs/prettier-plugin-sort-imports"
+  - prettier-plugin-tailwindcss

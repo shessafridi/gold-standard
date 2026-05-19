@@ -1,5 +1,6 @@
-import { type TransportContent } from '@/infrastructure/notifications/notifications.types';
 import type { MaybePromise } from '@/shared/types/maybe-promise';
+import { type TransportContent } from '@/infrastructure/notifications/notifications.types';
+
 import { templates } from '../email/email.registry';
 
 type ChannelRenderers<T> = {

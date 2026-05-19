@@ -1,10 +1,14 @@
 import { browserTokenStorage } from '@/core/auth/browser-token-storage.ts';
 import RouterProvider from '@/core/providers/router-provider';
 import { createRouter } from '@tanstack/react-router';
+
 import { AuthProvider } from '@workspace/auth-react';
+
 import '@workspace/ui/globals.css';
+
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+
 import type { AppRouterContext } from './core/types/router-context';
 import { routeTree } from './routeTree.gen';
 

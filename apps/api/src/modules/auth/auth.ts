@@ -1,6 +1,7 @@
 import env from '@/env';
 import { ValidationError } from '@/shared/errors';
 import { jwtVerify } from 'jose';
+
 import { userRepository } from '../user/user.repository';
 
 const JWT_SECRET = new TextEncoder().encode(env.AUTH_SECRET);

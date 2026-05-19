@@ -1,17 +1,17 @@
 export const getInitials = (string: string | undefined) => {
-  if (!string) return "U"
-  const names = string.split(" ")
-  let initials = names[0]?.substring(0, 1).toUpperCase() ?? ""
+  if (!string) return 'U';
+  const names = string.split(' ');
+  let initials = names[0]?.substring(0, 1).toUpperCase() ?? '';
 
   if (names.length > 1) {
-    initials += names[names.length - 1]?.substring(0, 1).toUpperCase() ?? ""
+    initials += names[names.length - 1]?.substring(0, 1).toUpperCase() ?? '';
   }
-  return initials
-}
+  return initials;
+};
 
 export const fullName = (
   firstName: string | null | undefined,
   lastName: string | null | undefined
 ) => {
-  return [firstName, lastName].filter(Boolean).join(" ")
-}
+  return [firstName, lastName].filter(Boolean).join(' ');
+};

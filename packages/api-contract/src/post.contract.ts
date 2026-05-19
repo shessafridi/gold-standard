@@ -1,6 +1,8 @@
 import { oc } from '@orpc/contract';
-import { createPostSchema, postSchema } from '@workspace/api-schemas/post';
 import { z } from 'zod';
+
+import { createPostSchema, postSchema } from '@workspace/api-schemas/post';
+
 import { withAuth } from './utils/with-auth';
 
 export const postContract = {

@@ -1,5 +1,8 @@
 import { standardSchemaResolver } from '@hookform/resolvers/standard-schema';
 import { useNavigate } from '@tanstack/react-router';
+import { Controller, useForm } from 'react-hook-form';
+import { type z } from 'zod';
+
 import { registerUserSchema } from '@workspace/api-schemas/auth';
 import { Button } from '@workspace/ui/components/button';
 import {
@@ -25,8 +28,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@workspace/ui/components/select';
-import { Controller, useForm } from 'react-hook-form';
-import { type z } from 'zod';
+
 import { useRegisterUser } from '../hooks/use-register-user';
 
 type SignUpFormValues = z.infer<typeof registerUserSchema>;

@@ -2,8 +2,9 @@ import env from '@/env';
 import { orpcHandler } from '@/orpc/handle';
 import { handleServerShutdown } from '@/shared/utils/handle-server-shutdown';
 import { serve } from '@hono/node-server';
-import { prisma } from '@workspace/db';
 import { Hono } from 'hono';
+
+import { prisma } from '@workspace/db';
 
 const app = new Hono();
 

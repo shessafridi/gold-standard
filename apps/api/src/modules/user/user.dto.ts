@@ -1,9 +1,10 @@
+import { format } from 'date-fns';
+
 import type {
   UserProfileOutput,
   UserPublicProfileOutput,
 } from '@workspace/api-schemas/user';
 import type { User } from '@workspace/db';
-import { format } from 'date-fns';
 
 export const buildUserProfileDto = (user: User): UserProfileOutput => ({
   id: user.id,

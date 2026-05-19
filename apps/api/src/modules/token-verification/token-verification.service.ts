@@ -1,9 +1,9 @@
-import {
-  notificationsService as notificationsServiceSingleton,
-  type NotificationsService,
-} from '@/infrastructure/notifications';
 import { createHash, randomUUID } from 'node:crypto';
+import type { NotificationsService } from '@/infrastructure/notifications';
+import { notificationsService as notificationsServiceSingleton } from '@/infrastructure/notifications';
+
 import type { VerificationTokenType } from '@workspace/db';
+
 import type { VerificationTokenRepository } from './verification-token.repository';
 import { verificationTokenRepository as verificationTokenRepositorySingleton } from './verification-token.repository';
 

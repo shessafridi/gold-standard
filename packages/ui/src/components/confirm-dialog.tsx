@@ -1,6 +1,7 @@
-import { useRef, type ReactElement } from 'react';
-
 import type { DialogRootActions } from '@base-ui/react';
+import type { ReactElement } from 'react';
+import { useRef } from 'react';
+
 import {
   AlertDialog,
   AlertDialogAction,

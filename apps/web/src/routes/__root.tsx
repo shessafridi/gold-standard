@@ -1,13 +1,14 @@
+import type { AppRouterContext } from '@/core/types/router-context';
 import { injectTokenGetter } from '@/core/clients/orpc-client';
 import queryClient from '@/core/clients/query-client';
 import { ThemeProvider } from '@/core/providers/theme-provider';
-import type { AppRouterContext } from '@/core/types/router-context';
 import { QueryClientProvider } from '@tanstack/react-query';
 import {
   createRootRouteWithContext,
   Outlet,
   redirect,
 } from '@tanstack/react-router';
+
 import { useAuthStatus, useAuthStore } from '@workspace/auth-react';
 import { Toaster } from '@workspace/ui/components/sonner';
 

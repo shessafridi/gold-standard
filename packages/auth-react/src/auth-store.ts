@@ -1,39 +1,41 @@
-import { create, type StoreApi, type UseBoundStore } from "zustand"
-import type { TokenStorage } from "./types/token-storage"
+import type { StoreApi, UseBoundStore } from 'zustand';
+import { create } from 'zustand';
 
-type AuthStatus = "loading" | "ready"
+import type { TokenStorage } from './types/token-storage';
+
+type AuthStatus = 'loading' | 'ready';
 
 type AuthState = {
-  token: string | null
-  status: AuthStatus
-  isHydrating: boolean
-  loginWithToken: (token: string) => Promise<void>
-  logout: () => Promise<void>
-  hydrate: () => Promise<void>
-}
+  token: string | null;
+  status: AuthStatus;
+  isHydrating: boolean;
+  loginWithToken: (token: string) => Promise<void>;
+  logout: () => Promise<void>;
+  hydrate: () => Promise<void>;
+};
 
 export function createAuthStore(storage: TokenStorage) {
-  return create<AuthState>()((set) => ({
+  return create<AuthState>()(set => ({
     token: null,
-    status: "loading",
+    status: 'loading',
     isHydrating: true,
 
     hydrate: async () => {
-      set({ status: "loading", isHydrating: true })
-      const stored = await storage.getToken()
-      set({ token: stored ?? null, status: "ready", isHydrating: false })
+      set({ status: 'loading', isHydrating: true });
+      const stored = await storage.getToken();
+      set({ token: stored ?? null, status: 'ready', isHydrating: false });
     },
 
     loginWithToken: async (newToken: string) => {
-      await storage.setToken(newToken)
-      set({ token: newToken })
+      await storage.setToken(newToken);
+      set({ token: newToken });
     },
 
     logout: async () => {
-      await storage.removeToken()
-      set({ token: null })
+      await storage.removeToken();
+      set({ token: null });
     },
-  }))
+  }));
 }
 
-export type AuthStore = UseBoundStore<StoreApi<AuthState>>
+export type AuthStore = UseBoundStore<StoreApi<AuthState>>;
