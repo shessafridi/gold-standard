@@ -1,13 +1,10 @@
 {
+  "extends": "@workspace/tsconfig/base.json",
   "compilerOptions": {
     "target": "ES2022",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "moduleResolution": "bundler",
+    "composite": true,
     "jsx": "react-jsx",
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
     "paths": {
       "@workspace/ui/*": ["./src/*"]
     }

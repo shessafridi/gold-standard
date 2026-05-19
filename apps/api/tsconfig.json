@@ -1,54 +1,27 @@
-// Visit https://aka.ms/tsconfig to read more about this file
 {
+  "extends": "@workspace/tsconfig/base.json",
   "tsc-alias": {
     "resolveFullPaths": true,
     "verbose": false
   },
   "compilerOptions": {
-    // File Layout
     "rootDir": "./src",
     "outDir": "./dist",
-
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "target": "esnext",
-
-    // For nodejs:
-    "lib": ["esnext"],
     "types": ["node"],
+    "emitDeclarationOnly": false,
 
-    // Other Outputs
-    "sourceMap": false,
-    "declaration": true,
-    "declarationMap": true,
+    "incremental": false,
 
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
+    "module": "esnext",
+
     "exactOptionalPropertyTypes": false,
-
-    // Style Options
-    "noImplicitReturns": true,
-    "noImplicitOverride": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noPropertyAccessFromIndexSignature": true,
-
-    // Remove magic
-    "verbatimModuleSyntax": true,
     "erasableSyntaxOnly": true,
+    "noEmit": false,
 
-    // Recommended Options
-    "strict": true,
     "jsx": "react-jsx",
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  },
+  "include": ["./src"]
 }

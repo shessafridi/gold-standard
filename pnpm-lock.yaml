@@ -96,6 +96,9 @@ importers:
       '@workspace/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
+      '@workspace/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
       eslint:
         specifier: ^10.3.0
         version: 10.4.0(jiti@2.7.0)
@@ -230,6 +233,9 @@ importers:
         specifier: workspace:*
         version: link:../../tooling/prettier
     devDependencies:
+      '@workspace/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
       tsdown:
         specifier: ^0.21.10
         version: 0.21.10(typescript@6.0.3)
@@ -252,6 +258,9 @@ importers:
       '@workspace/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
+      '@workspace/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
       tsdown:
         specifier: ^0.21.10
         version: 0.21.10(typescript@6.0.3)
@@ -268,6 +277,9 @@ importers:
       '@workspace/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
+      '@workspace/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
       tsdown:
         specifier: ^0.21.10
         version: 0.21.10(typescript@6.0.3)
@@ -296,6 +308,9 @@ importers:
       '@workspace/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
+      '@workspace/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
       tsdown:
         specifier: ^0.22.0
         version: 0.22.0(tsx@4.22.1)(typescript@6.0.3)(unrun@0.2.39)
@@ -324,6 +339,9 @@ importers:
       '@workspace/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
+      '@workspace/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
       prisma:
         specifier: ^7.8.0
         version: 7.8.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(better-sqlite3@12.10.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)
@@ -448,6 +466,9 @@ importers:
       '@workspace/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
+      '@workspace/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
       eslint:
         specifier: ^9.39.2
         version: 9.39.4(jiti@2.7.0)

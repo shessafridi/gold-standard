@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@workspace/prettier-config": "workspace:*",
+    "@workspace/tsconfig": "workspace:*",
     "tsdown": "^0.21.10",
     "typescript": "^6.0.3"
   },
