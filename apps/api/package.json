@@ -41,6 +41,7 @@
     "@types/node": "^24.12.3",
     "@types/react": "^19.2.14",
     "@workspace/prettier-config": "workspace:*",
+    "@workspace/tsconfig": "workspace:*",
     "eslint": "^10.3.0",
     "globals": "^17.6.0",
     "nodemon": "^3.1.14",
@@ -50,5 +51,5 @@
     "tsx": "^4.22.1",
     "typescript-eslint": "^8.59.2"
   },
-  "prettier": "@workspace/prettier-config" 
+  "prettier": "@workspace/prettier-config"
 }
