@@ -1,4 +1,5 @@
 import z from 'zod';
+
 import { genderValidator, passwordValidator } from '../common';
 
 export const userRoleSchema = z.enum(['ADMIN', 'USER']);

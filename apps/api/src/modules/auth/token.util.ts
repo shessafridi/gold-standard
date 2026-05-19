@@ -1,6 +1,7 @@
 import env from '@/env';
-import type { User } from '@workspace/db';
 import { SignJWT } from 'jose';
+
+import type { User } from '@workspace/db';
 
 export const generateAuthToken = async (user: User): Promise<string> => {
   const secret = new TextEncoder().encode(env.AUTH_SECRET);

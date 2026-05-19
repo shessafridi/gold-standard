@@ -1,4 +1,6 @@
 import { oc } from '@orpc/contract';
+import z from 'zod';
+
 import { messageOutputSchema } from '@workspace/api-schemas/common';
 import {
   adminResetPasswordSchema,
@@ -7,7 +9,7 @@ import {
   userProfileSchema,
   userPublicProfileSchema,
 } from '@workspace/api-schemas/user';
-import z from 'zod';
+
 import { withAuth } from './utils/with-auth';
 
 export const userContract = {

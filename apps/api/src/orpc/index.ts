@@ -1,4 +1,5 @@
 import { authMiddleware } from '@/modules/auth/auth.middleware';
+
 import { errorMiddleware } from './middlewares/errors.middleware';
 import { os } from './root';
 

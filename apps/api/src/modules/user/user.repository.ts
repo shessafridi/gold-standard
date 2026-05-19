@@ -1,6 +1,7 @@
 import type { StripGenerated } from '@/shared/types/prisma-utils';
-import { prisma, type User } from '@workspace/db';
-import type { Prisma } from '@workspace/db';
+
+import type { Prisma, User } from '@workspace/db';
+import { prisma } from '@workspace/db';
 
 type UpdateInput = StripGenerated<Prisma.UserUpdateInput>;
 type CreateInput = StripGenerated<Prisma.UserCreateInput>;

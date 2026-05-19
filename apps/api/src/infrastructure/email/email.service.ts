@@ -1,20 +1,20 @@
-import { emailClient } from "./email.provider"
-import type { EmailTemplatesProps } from "./email.registry"
-import { templates } from "./email.registry"
+import type { EmailTemplatesProps } from './email.registry';
+import { emailClient } from './email.provider';
+import { templates } from './email.registry';
 
 export const emailService = {
   send: async <T extends keyof EmailTemplatesProps>(options: {
-    template: T
-    to: string
-    data: EmailTemplatesProps[T]
-    subject?: string
+    template: T;
+    to: string;
+    data: EmailTemplatesProps[T];
+    subject?: string;
   }) => {
-    const { template, data, to } = options
+    const { template, data, to } = options;
 
-    const config = templates[template]
+    const config = templates[template];
 
-    const { subject, html } = await config(data)
+    const { subject, html } = await config(data);
 
-    return emailClient.send({ to, subject: options.subject ?? subject, html })
+    return emailClient.send({ to, subject: options.subject ?? subject, html });
   },
-}
+};

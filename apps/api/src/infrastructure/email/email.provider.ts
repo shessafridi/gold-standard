@@ -1,3 +1,3 @@
-import { EmailClient } from "./email.client"
+import { EmailClient } from './email.client';
 
-export const emailClient = new EmailClient()
+export const emailClient = new EmailClient();

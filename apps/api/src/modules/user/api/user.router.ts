@@ -1,5 +1,6 @@
 import { authed } from '@/orpc';
 import { ORPCError } from '@orpc/client';
+
 import { userService } from '../user.service';
 
 export const userRouter = authed.user.router({

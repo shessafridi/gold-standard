@@ -1,6 +1,7 @@
 import { useCurrentUserProfile } from '@/core/auth/hooks/use-current-user-profile';
 import { useLogout } from '@/core/auth/hooks/use-logout';
 import { createFileRoute } from '@tanstack/react-router';
+
 import { Button } from '@workspace/ui/components/button';
 
 export const Route = createFileRoute('/_dashboard/app/')({

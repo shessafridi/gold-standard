@@ -1,5 +1,3 @@
-import { ORPCError } from '@orpc/server';
-
 import {
   AppError,
   ConflictError,
@@ -8,6 +6,8 @@ import {
   UnauthorizedError,
   ValidationError,
 } from '@/shared/errors';
+import { ORPCError } from '@orpc/server';
+
 import { os } from '../root';
 
 export const errorMiddleware = os.middleware(async ({ next }) => {

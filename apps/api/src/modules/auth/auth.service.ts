@@ -1,8 +1,8 @@
+import type { UserRepository } from '@/modules/user/user.repository';
 import {
   tokenVerificationService as tokenVerificationServiceSingleton,
   VerificationTokenType,
 } from '@/modules/token-verification';
-import type { UserRepository } from '@/modules/user/user.repository';
 import { userRepository as userRepositorySingleton } from '@/modules/user/user.repository';
 import { UnauthorizedError, ValidationError } from '@/shared/errors';
 import { fullName } from '@/shared/utils/names';
@@ -15,6 +15,7 @@ import type {
   VerifyEmailInput,
   VerifyResetOtpInput,
 } from '@workspace/api-schemas/auth';
+
 import type { TokenVerificationService } from '../token-verification/token-verification.service';
 import { buildUserProfileDto } from '../user/user.dto';
 import { hashPassword, verifyPassword } from './password.util';

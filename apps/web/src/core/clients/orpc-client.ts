@@ -1,8 +1,5 @@
-import {
-  createClient,
-  createQueryUtils,
-  type CreateClientOptions,
-} from '@workspace/api-client';
+import type { CreateClientOptions } from '@workspace/api-client';
+import { createClient, createQueryUtils } from '@workspace/api-client';
 
 type TokenGetter = () => string | null;
 let tokenGetter: TokenGetter | null = null;

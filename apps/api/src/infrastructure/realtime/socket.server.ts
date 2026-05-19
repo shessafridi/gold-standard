@@ -1,7 +1,7 @@
-import { resolveCorsOrigins } from "@/shared/utils/cors-origins"
-import type http from "node:http"
-import type { Http2Server } from "node:http2"
-import { Server } from "socket.io"
+import type http from 'node:http';
+import type { Http2Server } from 'node:http2';
+import { resolveCorsOrigins } from '@/shared/utils/cors-origins';
+import { Server } from 'socket.io';
 
 export const createSocketServer = (httpServer: http.Server | Http2Server) => {
   return new Server(httpServer, {
@@ -9,5 +9,5 @@ export const createSocketServer = (httpServer: http.Server | Http2Server) => {
       origin: resolveCorsOrigins(),
       credentials: true,
     },
-  })
-}
+  });
+};

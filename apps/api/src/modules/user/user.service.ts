@@ -1,9 +1,9 @@
 import type { TokenVerificationService } from '@/modules/token-verification';
+import type { UserRepository } from '@/modules/user/user.repository';
 import {
   tokenVerificationService as tokenVerificationServiceSingleton,
   VerificationTokenType,
 } from '@/modules/token-verification';
-import type { UserRepository } from '@/modules/user/user.repository';
 import { userRepository as userRepositorySingleton } from '@/modules/user/user.repository';
 import {
   NotFoundError,
@@ -11,6 +11,7 @@ import {
   ValidationError,
 } from '@/shared/errors';
 import { fullName } from '@/shared/utils/names';
+
 import type { ChangePasswordInput } from '@workspace/api-schemas/user';
 
 import { hashPassword, verifyPassword } from '../auth/password.util';

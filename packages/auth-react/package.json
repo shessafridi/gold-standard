@@ -33,7 +33,9 @@
   "devDependencies": {
     "@tanstack/react-query": "^5.99.0",
     "@types/react": "^19.2.14",
+    "@workspace/prettier-config": "workspace:*",
     "tsdown": "^0.22.0",
     "zustand": "^5.0.12"
-  }
+  },
+  "prettier": "@workspace/prettier-config"
 }

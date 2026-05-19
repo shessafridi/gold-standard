@@ -21,7 +21,9 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@workspace/prettier-config": "workspace:*",
     "tsdown": "^0.21.10",
     "typescript": "^6.0.3"
-  }
+  },
+  "prettier": "@workspace/prettier-config"
 }

@@ -1,4 +1,5 @@
 import type { StripGenerated } from '@/shared/types/prisma-utils';
+
 import type { Prisma, VerificationToken } from '@workspace/db';
 import { prisma } from '@workspace/db';
 

@@ -1,6 +1,6 @@
+import type { Server, Socket } from 'socket.io';
 import env from '@/env';
 import { jwtVerify } from 'jose';
-import type { Server, Socket } from 'socket.io';
 
 type TokenPayload = {
   email: string;

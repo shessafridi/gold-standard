@@ -1,5 +1,6 @@
 import { os } from '@/orpc/root';
 import { ORPCError } from '@orpc/client';
+
 import { extractTokenFromHeaders, resolveUserFromToken } from './auth';
 
 export const authMiddleware = os.middleware(async ({ context, next }) => {

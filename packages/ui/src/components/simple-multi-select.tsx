@@ -1,5 +1,5 @@
-import { type Ref, useCallback, useEffect, useMemo, useState } from 'react';
-
+import type { Ref } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { CheckIcon, ChevronsUpDownIcon, XCircle } from 'lucide-react';
 
 import { Badge } from './badge';
@@ -205,7 +205,7 @@ function SimpleMultiSelect({
               )}
               <ChevronsUpDownIcon
                 size={16}
-                className='shrink-0 text-muted-foreground/80'
+                className='text-muted-foreground/80 shrink-0'
                 aria-hidden='true'
               />
             </Button>

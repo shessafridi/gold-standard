@@ -1,7 +1,5 @@
-import {
-  registry,
-  type NotificationData,
-} from '@/infrastructure/notifications/notifications.registry';
+import type { NotificationData } from '@/infrastructure/notifications/notifications.registry';
+import { registry } from '@/infrastructure/notifications/notifications.registry';
 import {
   type NotificationChannel,
   type Transport,

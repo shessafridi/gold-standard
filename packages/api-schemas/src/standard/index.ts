@@ -1,1 +1,1 @@
-export * from "./iso-currency"
+export * from './iso-currency';
