@@ -1,159 +1,86 @@
-# Turborepo starter
+# e2e Typescript
 
-This Turborepo starter is maintained by the Turborepo core team.
+This repository is a personal full-stack template and reference project.
 
-## Using this example
+It is meant to be a kind of gold-standard baseline for how to structure things: a place to codify preferred patterns for monorepo layout, API contracts, schema ownership, auth flows, shared packages, and backend layering.
 
-Run the following command:
+Instead of being just a demo app, this repo is intended to answer questions like:
 
-```sh
-npx create-turbo@latest
+- How should a new feature/module be added?
+- Where should contracts, schemas, services, and repositories live?
+- How should frontend and backend types stay aligned?
+- What does a clean full-stack TypeScript monorepo look like?
+
+## What This Repo Is
+
+- A `pnpm` workspace managed with Turborepo
+- A full-stack TypeScript monorepo
+- A template for project structure and conventions
+- A reference implementation for typed APIs and shared contracts
+
+## Apps
+
+- `apps/web`: Vite + React frontend
+- `apps/api`: Hono + oRPC backend
+
+## Packages
+
+- `packages/api-schemas`: shared Zod schemas for inputs and outputs
+- `packages/api-contract`: shared oRPC contract definitions
+- `packages/api-client`: typed API client and TanStack Query helpers
+- `packages/auth-react`: reusable client-side auth state utilities
+- `packages/db`: Prisma schema, generated client, and DB access package
+- `packages/ui`: shared UI components and styles
+
+## Architectural Direction
+
+This repo favors a clear separation of concerns:
+
+- Prisma models define persistence
+- Zod schemas define API inputs and outputs
+- API contracts define the transport surface
+- Routers implement procedures
+- Services hold business logic
+- Repositories handle database access
+
+That means new backend modules should generally follow:
+
+```text
+procedure -> service -> repository -> prisma
+                     -> dto mapper -> output schema
 ```
 
-## What's inside?
+## Documentation
 
-This Turborepo includes the following packages/apps:
+- [Architecture](docs/architecture.md)
+- [Adding a new module](docs/adding-a-new-module.md)
 
-### Apps and Packages
+## Getting Started
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+Install dependencies:
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo build
+```bash
+pnpm install
 ```
 
-Without global `turbo`, use your package manager:
+Run everything in dev:
 
-```sh
-cd my-turborepo
-npx turbo build
-pnpm dlx turbo build
-pnpm exec turbo build
+```bash
+pnpm dev
 ```
 
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+Common commands:
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo build --filter=docs
+```bash
+pnpm build
+pnpm lint
+pnpm check-types
+pnpm db:generate
+pnpm db:push
 ```
 
-Without global `turbo`:
+## Notes
 
-```sh
-npx turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo dev
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo dev
-pnpm exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo dev --filter=web
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo login
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo login
-pnpm exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo link
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo link
-pnpm exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+- This repo is still evolving and acts as a working standard, not a frozen boilerplate.
+- Some modules are more complete than others, but the intended structure is already visible in the current architecture.
+- When in doubt, prefer consistency with the documented patterns over quick one-off implementations.
