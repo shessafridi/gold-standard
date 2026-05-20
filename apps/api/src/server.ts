@@ -14,7 +14,11 @@ function bootstrap() {
   app.use('/api/*', async (c, next) => {
     const { matched, response } = await orpcHandler.handle(c.req.raw, {
       prefix: '/api',
-      context: { db: prisma, headers: c.req.raw.headers },
+      context: {
+        db: prisma,
+        reqHeaders: c.req.raw.headers,
+        resHeaders: c.res.headers,
+      },
     });
 
     if (matched) return c.newResponse(response.body, response);
