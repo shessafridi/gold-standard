@@ -1,7 +1,11 @@
 import { OpenAPIHandler } from '@orpc/openapi/fetch';
 import { OpenAPIReferencePlugin } from '@orpc/openapi/plugins';
 import { onError } from '@orpc/server';
-import { CORSPlugin } from '@orpc/server/plugins';
+import {
+  CORSPlugin,
+  RequestHeadersPlugin,
+  ResponseHeadersPlugin,
+} from '@orpc/server/plugins';
 import { ZodToJsonSchemaConverter } from '@orpc/zod/zod4';
 
 import { router } from './router';
@@ -9,6 +13,9 @@ import { router } from './router';
 export const orpcHandler = new OpenAPIHandler(router, {
   plugins: [
     new CORSPlugin(),
+    new RequestHeadersPlugin(),
+    new ResponseHeadersPlugin(),
+
     new OpenAPIReferencePlugin({
       docsProvider: 'scalar',
       docsPath: '/docs',
