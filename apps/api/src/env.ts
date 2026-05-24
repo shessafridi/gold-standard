@@ -12,7 +12,7 @@ const envSchema = z.object({
   RESEND_API_KEY: z.string().min(1),
   FROM_EMAIL: z.email().default('noreply@workspace.com'),
   CONTACT_EMAIL: z.email().default('contact@workspace.com'),
-  APP_NAME: z.string().default('Vet App'),
+  APP_NAME: z.string().default('Gold Standard'),
 });
 
 const env = envSchema.parse(process.env);

@@ -1,5 +1,6 @@
 {
-  "name": "e2ets",
+  "name": "gold-standard",
+  "description": "Gold Standard is a Turborepo starter template for building apps with e2e type-safety using contract-first oRPC.",
   "private": true,
   "scripts": {
     "build": "turbo run build",
