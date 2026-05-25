@@ -1,7 +1,7 @@
-import {
-  type PushChannel,
-  type Transport,
-  type TransportContent,
+import type {
+  PushChannel,
+  Transport,
+  TransportContent,
 } from '@/infrastructure/notifications/notifications.types';
 
 export class PushTransport implements Transport<PushChannel> {
@@ -15,6 +15,8 @@ export class PushTransport implements Transport<PushChannel> {
       channel,
       content,
     });
+
+    await Promise.resolve(); // placeholder to satisfy the async signature
     // const token = await getDeviceToken(channel.userId);
     // if (!token) return; // user has no registered device — skip silently
 

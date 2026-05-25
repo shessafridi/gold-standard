@@ -70,7 +70,7 @@ export class AuthService {
   async loginUser(data: LoginInput) {
     const user = await this.userRepository.findOne({ email: data.email });
 
-    if (!user || !user.password) {
+    if (!user?.password) {
       throw new UnauthorizedError('Invalid email or password');
     }
 
@@ -122,7 +122,7 @@ export class AuthService {
     const genericMessage =
       'If an account with that email exists, we sent a password reset OTP.';
 
-    if (!user || !user?.email) {
+    if (!user?.email) {
       return { message: genericMessage };
     }
 

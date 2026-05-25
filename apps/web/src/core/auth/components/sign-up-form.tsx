@@ -1,7 +1,7 @@
+import type { z } from 'zod';
 import { standardSchemaResolver } from '@hookform/resolvers/standard-schema';
 import { useNavigate } from '@tanstack/react-router';
 import { Controller, useForm } from 'react-hook-form';
-import { type z } from 'zod';
 
 import { registerUserSchema } from '@workspace/api-schemas/auth';
 import { Button } from '@workspace/ui/components/button';
@@ -33,10 +33,10 @@ import { useRegisterUser } from '../hooks/use-register-user';
 
 type SignUpFormValues = z.infer<typeof registerUserSchema>;
 
-const genderOptions: Array<{
+const genderOptions: {
   label: string;
   value: SignUpFormValues['gender'];
-}> = [
+}[] = [
   { label: 'Male', value: 'male' },
   { label: 'Female', value: 'female' },
   { label: 'Unknown', value: 'unknown' },
@@ -62,7 +62,7 @@ export function SignUpForm() {
   const onSubmit = (values: SignUpFormValues) => {
     register.mutate(values, {
       onSuccess: () => {
-        navigate({ to: '/sign-in' });
+        void navigate({ to: '/sign-in' });
       },
     });
   };
@@ -208,7 +208,7 @@ export function SignUpForm() {
           <CardFooter className='justify-between gap-4'>
             {register.isError && (
               <div className='text-destructive text-sm'>
-                {(register.error as Error)?.message ?? 'Registration failed'}
+                {register.error.message || 'Registration failed'}
               </div>
             )}
 

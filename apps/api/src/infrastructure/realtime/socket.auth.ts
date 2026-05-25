@@ -6,34 +6,37 @@ type TokenPayload = {
   email: string;
 };
 
-export interface AuthenticatedSocket extends Socket {
+export type AuthenticatedSocket = Socket & {
   user?: { email: string };
-}
+};
 
 export const socketAuthMiddleware = (io: Server) => {
-  io.use(async (socket: AuthenticatedSocket, next) => {
-    const token = socket.handshake.auth?.['token'];
+  io.use((socket: AuthenticatedSocket, next) => {
+    const token = socket.handshake.auth['token'] as string | undefined;
 
-    if (!token) return next(new Error('Token required'));
-
-    let userInfo: {
-      email: string;
-    };
-    try {
-      const secret = new TextEncoder().encode(env.AUTH_SECRET);
-      const { payload } = await jwtVerify(token, secret);
-      const decoded = payload as TokenPayload;
-      // const decoded = jwt.verify(token, env.AUTH_SECRET) as {
-      //   email: string;
-      // };
-      userInfo = {
-        email: decoded.email,
-      };
-    } catch {
-      return next(new Error('Failed to parse token'));
+    if (!token) {
+      next(new Error('Token required'));
+      return;
     }
 
-    socket.user = userInfo;
-    next();
+    parseToken(token)
+      .then(userInfo => {
+        socket.user = userInfo;
+        next();
+      })
+      .catch((error: unknown) => {
+        console.error('Token verification failed:', error);
+        next(new Error('Invalid token'));
+      });
   });
 };
+
+async function parseToken(token: string) {
+  const secret = new TextEncoder().encode(env.AUTH_SECRET);
+  const { payload } = await jwtVerify(token, secret);
+  const decoded = payload as TokenPayload;
+
+  return {
+    email: decoded.email,
+  };
+}

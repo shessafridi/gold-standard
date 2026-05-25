@@ -6,31 +6,31 @@ export class AppError extends Error {
 }
 
 export class ValidationError extends AppError {
-  constructor(message: string = 'Validation failed') {
+  constructor(message = 'Validation failed') {
     super(message);
   }
 }
 
 export class UnauthorizedError extends AppError {
-  constructor(message: string = 'Unauthorized') {
+  constructor(message = 'Unauthorized') {
     super(message);
   }
 }
 
 export class NotFoundError extends AppError {
-  constructor(message: string = 'Not Found') {
+  constructor(message = 'Not Found') {
     super(message);
   }
 }
 
 export class ForbiddenError extends AppError {
-  constructor(message: string = 'Forbidden') {
+  constructor(message = 'Forbidden') {
     super(message);
   }
 }
 
 export class ConflictError extends AppError {
-  constructor(message: string = 'Conflict') {
+  constructor(message = 'Conflict') {
     super(message);
   }
 }

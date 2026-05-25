@@ -4,7 +4,13 @@ import { ORPCError } from '@orpc/client';
 import { extractTokenFromHeaders, resolveUserFromToken } from './auth';
 
 export const authMiddleware = os.middleware(async ({ context, next }) => {
-  const token = extractTokenFromHeaders(context.headers);
+  if (!context.reqHeaders) {
+    throw new ORPCError('INTERNAL_ERROR', {
+      message: 'Request headers are missing in context',
+    });
+  }
+
+  const token = extractTokenFromHeaders(context.reqHeaders);
 
   if (!token) {
     throw new ORPCError('UNAUTHORIZED', {

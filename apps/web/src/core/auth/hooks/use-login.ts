@@ -12,7 +12,7 @@ export const useLogin = () => {
       onSuccess: async data => {
         if (!data.token) throw new Error('Token not found in response');
         await loginWithToken(data.token);
-        queryClient.invalidateQueries({
+        await queryClient.invalidateQueries({
           queryKey: orpcQueryClient.user.getMyProfile.queryKey(),
         });
       },

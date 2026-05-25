@@ -1,7 +1,7 @@
-import {
-  type Transport,
-  type TransportContent,
-  type WhatsAppChannel,
+import type {
+  Transport,
+  TransportContent,
+  WhatsAppChannel,
 } from '@/infrastructure/notifications/notifications.types';
 
 export class WhatsAppTransport implements Transport<WhatsAppChannel> {
@@ -15,6 +15,8 @@ export class WhatsAppTransport implements Transport<WhatsAppChannel> {
       channel,
       content,
     });
+
+    await Promise.resolve(); // placeholder to satisfy the async signature
     // await twilioClient.messages.create({
     //   to: `whatsapp:${channel.phoneNumber}`,
     //   from: `whatsapp:${process.env['TWILIO_WHATSAPP_NUMBER']}`,

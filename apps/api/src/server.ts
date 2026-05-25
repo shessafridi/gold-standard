@@ -22,6 +22,7 @@ function bootstrap() {
     });
 
     if (matched) return c.newResponse(response.body, response);
+    // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
     return await next();
   });
 

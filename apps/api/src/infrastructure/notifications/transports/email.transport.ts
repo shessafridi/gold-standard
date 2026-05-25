@@ -1,9 +1,5 @@
 import { emailClient } from '@/infrastructure/email/email.provider';
-import {
-  type EmailChannel,
-  type Transport,
-  type TransportContent,
-} from '@/infrastructure/notifications/notifications.types';
+import type {EmailChannel, Transport, TransportContent} from '@/infrastructure/notifications/notifications.types';
 
 export class EmailTransport implements Transport<EmailChannel> {
   readonly type = 'email' as const;

@@ -9,7 +9,7 @@ export const tryJsonParse = <T>(str: string | undefined | null): T | null => {
 export const tryJsonParseArray = <T>(str: string | undefined | null): T[] => {
   try {
     if (!str) return [];
-    const parsed = JSON.parse(str);
+    const parsed = JSON.parse(str) as unknown;
     if (!Array.isArray(parsed)) return [];
     return parsed as T[];
   } catch {

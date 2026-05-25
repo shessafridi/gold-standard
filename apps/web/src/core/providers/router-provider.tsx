@@ -4,7 +4,7 @@ import { RouterProvider as TanstackRouterProvider } from '@tanstack/react-router
 
 import { useAuth } from '@workspace/auth-react';
 
-interface Props {
+type Props = {
   router: ComponentProps<
     typeof TanstackRouterProvider<RegisteredRouter>
   >['router'];

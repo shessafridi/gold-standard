@@ -7,7 +7,7 @@ import { socketAuthMiddleware } from './socket.auth';
 import { registerSocketEvents } from './socket.events';
 import { createSocketServer } from './socket.server';
 
-let io: Server;
+let io: Server | null = null;
 
 export const setupSocketIo = (app: ServerType) => {
   if (io) throw new Error('Server is already initialized');
