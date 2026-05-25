@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
+/* eslint-disable react-hooks/set-state-in-effect */
 'use client';
 
 import type { UseEmblaCarouselType } from 'embla-carousel-react';
@@ -99,7 +101,7 @@ function Carousel({
     api.on('select', onSelect);
 
     return () => {
-      api?.off('select', onSelect);
+      api.off('select', onSelect);
     };
   }, [api, onSelect]);
 

@@ -1,8 +1,8 @@
 import { z } from 'zod';
 
 export const createDobValidator = (options: {
-  minAge?: number;
-  maxAge?: number;
+  minAge?: number | null;
+  maxAge?: number | null;
 }) => {
   const { minAge, maxAge } = options;
 
@@ -21,7 +21,7 @@ export const createDobValidator = (options: {
         return date <= limit;
       },
       {
-        message: `You must be at least ${minAge} years old`,
+        message: `You must be at least ${minAge?.toString() ?? 'unknown'} years old`,
       }
     )
     .refine(
@@ -37,7 +37,7 @@ export const createDobValidator = (options: {
         return date >= limit;
       },
       {
-        message: `Please enter a valid birth date (max age is ${maxAge})`,
+        message: `Please enter a valid birth date (max age is ${maxAge?.toString() ?? 'unknown'})`,
       }
     );
 };

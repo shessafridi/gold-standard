@@ -60,12 +60,12 @@ function ComboBoxSelect({
   const anchor = useComboboxAnchor();
 
   const optionsMap = useMemo(() => {
-    return options.reduce(
+    return options.reduce<Record<string, { value: string; label: string }>>(
       (acc, option) => {
         acc[option.value] = option;
         return acc;
       },
-      {} as Record<string, { value: string; label: string }>
+      {}
     );
   }, [options]);
 

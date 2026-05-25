@@ -4,7 +4,7 @@ import { baseConfig } from '@workspace/eslint-config/base';
 
 export default defineConfig(
   {
-    ignores: ['dist/**'],
+    ignores: ['dist/**', '**/generated/**', '**/generated/prisma/**'],
   },
   baseConfig
 );

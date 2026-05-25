@@ -199,7 +199,7 @@ function SimpleMultiSelect({
                   {firstSelected
                     ? labelRenderer
                       ? labelRenderer(firstSelected)
-                      : firstSelected?.label
+                      : firstSelected.label
                     : placeholder}
                 </span>
               )}
@@ -219,7 +219,9 @@ function SimpleMultiSelect({
             />
             <CommandList
               className='dark:scheme-dark'
-              onWheel={e => e.stopPropagation()}
+              onWheel={e => {
+                e.stopPropagation();
+              }}
             >
               {isSearching && (
                 <CommandLoading>{searchingMessage}</CommandLoading>
@@ -229,7 +231,9 @@ function SimpleMultiSelect({
                 {showNull && (
                   <CommandItem
                     value={undefined}
-                    onSelect={() => toggleSelection(null)}
+                    onSelect={() => {
+                      toggleSelection(null);
+                    }}
                     aria-selected={nothingSelected}
                   >
                     <span className='truncate'>None</span>
@@ -242,7 +246,9 @@ function SimpleMultiSelect({
                   <CommandItem
                     key={option.value}
                     value={setStableValue ? option.value : undefined}
-                    onSelect={() => toggleSelection(option.value)}
+                    onSelect={() => {
+                      toggleSelection(option.value);
+                    }}
                     aria-selected={!!value?.includes(option.value)}
                   >
                     <span className='truncate'>
