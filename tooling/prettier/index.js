@@ -9,6 +9,7 @@ const config = {
     'prettier-plugin-tailwindcss',
   ],
   tailwindFunctions: ['cn', 'cva'],
+  tailwindStylesheet: '../../packages/ui/src/styles/globals.css',
   importOrder: [
     '<TYPES>',
     '^(react/(.*)$)|^(react$)|^(react-native(.*)$)',
