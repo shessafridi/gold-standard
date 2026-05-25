@@ -10,7 +10,8 @@
     "db:studio": "prisma studio",
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "format": "prettier --write \"**/*.{ts,tsx}\""
+    "lint": "eslint",
+    "format": "prettier --check . --ignore-path ../../.gitignore"
   },
   "exports": {
     ".": "./src/index.ts",
