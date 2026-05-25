@@ -91,7 +91,7 @@ export function LoginForm() {
 
           <CardFooter className='justify-between gap-4'>
             {login.isError && (
-              <div className='text-destructive text-sm'>
+              <div className='text-sm text-destructive'>
                 {login.error.message || 'Login failed'}
               </div>
             )}

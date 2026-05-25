@@ -205,7 +205,7 @@ function SimpleMultiSelect({
               )}
               <ChevronsUpDownIcon
                 size={16}
-                className='text-muted-foreground/80 shrink-0'
+                className='shrink-0 text-muted-foreground/80'
                 aria-hidden='true'
               />
             </Button>
