@@ -33,7 +33,7 @@ export type TransportContent = {
   push: { title: string; body: string };
 };
 
-export interface Transport<TChannel extends NotificationChannel> {
+export type Transport<TChannel extends NotificationChannel> = {
   readonly type: TChannel['type'];
   send(
     channel: TChannel,

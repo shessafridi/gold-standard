@@ -66,6 +66,6 @@ export const WelcomeEmail = ({ name }: Props) => (
 
 WelcomeEmail.PreviewProps = {
   name: 'John Doe',
-} as Props;
+};
 
 export default WelcomeEmail;

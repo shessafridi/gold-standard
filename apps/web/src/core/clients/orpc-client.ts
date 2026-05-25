@@ -1,3 +1,5 @@
+import { env } from '@/env';
+
 import type { CreateClientOptions } from '@workspace/api-client';
 import { createClient, createQueryUtils } from '@workspace/api-client';
 
@@ -8,7 +10,7 @@ export const injectTokenGetter = (getter: TokenGetter) => {
   tokenGetter = getter;
 };
 
-const baseUrl = `${import.meta.env['VITE_API_URL']}/api`;
+const baseUrl = `${env.API_URL}/api`;
 
 const options: CreateClientOptions = {
   url: baseUrl,

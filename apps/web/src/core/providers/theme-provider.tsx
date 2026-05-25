@@ -3,17 +3,17 @@ import { useMediaQuery } from '@uidotdev/usehooks';
 
 type Theme = 'dark' | 'light' | 'system';
 
-interface ThemeProviderProps {
+type ThemeProviderProps = {
   children: React.ReactNode;
   defaultTheme?: Theme;
   storageKey?: string;
-}
+};
 
-interface ThemeProviderState {
+type ThemeProviderState = {
   theme: Theme;
   setTheme: (theme: Theme) => void;
   isSystemDark: boolean;
-}
+};
 
 const initialState: ThemeProviderState = {
   theme: 'system',
@@ -31,7 +31,8 @@ export function ThemeProvider({
   ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
+    () =>
+      (localStorage.getItem(storageKey) as Theme | undefined) ?? defaultTheme
   );
   const isSystemDark = useMediaQuery('(prefers-color-scheme: dark)');
 

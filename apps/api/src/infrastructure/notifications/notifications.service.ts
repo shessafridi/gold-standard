@@ -1,9 +1,9 @@
 import type { NotificationData } from '@/infrastructure/notifications/notifications.registry';
-import { registry } from '@/infrastructure/notifications/notifications.registry';
-import {
-  type NotificationChannel,
-  type Transport,
+import type {
+  NotificationChannel,
+  Transport,
 } from '@/infrastructure/notifications/notifications.types';
+import { registry } from '@/infrastructure/notifications/notifications.registry';
 import { ValidationError } from '@/shared/errors';
 
 export type SendNotificationOptions<K extends keyof NotificationData> = {
@@ -46,10 +46,7 @@ export class NotificationsService {
 
         const content = await renderer(options.data);
 
-        return transport.send(
-          channel,
-          content as Parameters<typeof transport.send>[1]
-        );
+        return transport.send(channel, content);
       })
     );
 
@@ -59,7 +56,7 @@ export class NotificationsService {
       if (result.status === 'rejected') {
         const channel = options.channels[index];
         console.error(
-          `[notifications] Failed to send "${options.notification}" via "${channel?.type}":`,
+          `[notifications] Failed to send "${options.notification}" via "${channel?.type ?? 'unknown'}":`,
           result.reason
         );
       }

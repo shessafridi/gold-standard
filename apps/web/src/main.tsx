@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
 import { browserTokenStorage } from '@/core/auth/browser-token-storage.ts';
 import RouterProvider from '@/core/providers/router-provider';
 import { createRouter } from '@tanstack/react-router';
@@ -9,7 +10,6 @@ import '@workspace/ui/globals.css';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import type { AppRouterContext } from './core/types/router-context';
 import { routeTree } from './routeTree.gen';
 
 // @ts-expect-error fixes some errors with chart libraries
@@ -22,7 +22,7 @@ const router = createRouter({
     status: 'loading',
     token: null,
     isHydrating: true,
-  } as AppRouterContext,
+  },
 });
 
 // Register the router instance for type safety
@@ -32,6 +32,7 @@ declare module '@tanstack/react-router' {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <AuthProvider storage={browserTokenStorage}>

@@ -31,7 +31,7 @@ export class UserService {
 
   public async changePassword(userId: string, data: ChangePasswordInput) {
     const user = await this.userRepository.findById(userId);
-    if (!user || !user.password) {
+    if (!user?.password) {
       throw new NotFoundError('User not found');
     }
 

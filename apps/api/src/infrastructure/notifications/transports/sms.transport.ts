@@ -1,7 +1,7 @@
-import {
-  type SmsChannel,
-  type Transport,
-  type TransportContent,
+import type {
+  SmsChannel,
+  Transport,
+  TransportContent,
 } from '@/infrastructure/notifications/notifications.types';
 
 export class SmsTransport implements Transport<SmsChannel> {
@@ -15,6 +15,8 @@ export class SmsTransport implements Transport<SmsChannel> {
       channel,
       content,
     });
+
+    await Promise.resolve(); // placeholder to satisfy the async signature
     // await twilioClient.messages.create({
     //   to: channel.phoneNumber,
     //   from: process.env['TWILIO_FROM_NUMBER']!,

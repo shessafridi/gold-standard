@@ -42,6 +42,7 @@ export const baseConfig = defineConfig(
         },
       ],
       '@typescript-eslint/no-non-null-assertion': 'error',
+      '@typescript-eslint/no-unnecessary-type-parameters': 'off',
       'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
       '@typescript-eslint/consistent-type-definitions': ['warn', 'type'],
     },

@@ -63,5 +63,5 @@ export const orpcHandler = new OpenAPIHandler(router, {
       },
     }),
   ],
-  interceptors: [onError(error => console.error(error))],
+  interceptors: [onError(error => { console.error(error); })],
 });

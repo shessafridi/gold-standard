@@ -1,7 +1,7 @@
+import type { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
-import { type z } from 'zod';
 
 import { loginSchema } from '@workspace/api-schemas/auth';
 import { Button } from '@workspace/ui/components/button';
@@ -92,7 +92,7 @@ export function LoginForm() {
           <CardFooter className='justify-between gap-4'>
             {login.isError && (
               <div className='text-destructive text-sm'>
-                {(login.error as Error)?.message ?? 'Login failed'}
+                {login.error.message || 'Login failed'}
               </div>
             )}
 
