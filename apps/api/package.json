@@ -6,10 +6,9 @@
   "scripts": {
     "dev": "nodemon",
     "lint": "eslint",
-    "lint:fix": "eslint --fix",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
     "build": "rimraf ./dist && tsc && tsc-alias",
-    "typecheck": "tsc --noEmit",
-    "format": "prettier --write \"**/*.{ts,tsx}\""
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",

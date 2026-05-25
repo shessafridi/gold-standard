@@ -6,7 +6,8 @@
     "build": "tsdown",
     "dev": "tsdown --watch",
     "typecheck": "tsc --noEmit",
-    "format": "prettier --write \"**/*.{ts,tsx}\""
+    "lint": "eslint",
+    "format": "prettier --check . --ignore-path ../../.gitignore"
   },
   "exports": {
     "./auth": {
