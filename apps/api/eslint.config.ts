@@ -1,29 +1,19 @@
-import js from '@eslint/js';
 import { defineConfig } from 'eslint/config';
 import globals from 'globals';
-import tseslint from 'typescript-eslint';
+
+import { baseConfig } from '@workspace/eslint-config/base';
 
 export default defineConfig([
+  baseConfig,
   {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
-    plugins: { js },
-    extends: ['js/recommended'],
     languageOptions: { globals: globals.node },
   },
   {
-    ignores: ['eslint.config.mjs', 'node_modules', 'dist'],
-  },
-  tseslint.configs.strict,
-  {
-    languageOptions: {
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
+    ignores: ['eslint.config.ts', 'node_modules', 'dist'],
   },
   {
     rules: {
+      'react-refresh/only-export-components': 'off',
       '@typescript-eslint/consistent-type-imports': ['error'],
     },
   },

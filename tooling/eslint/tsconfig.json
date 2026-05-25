@@ -1,0 +1,9 @@
+{
+  "extends": "@workspace/tsconfig/base.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "strict": true
+  },
+  "include": ["."],
+  "exclude": ["node_modules"]
+}
