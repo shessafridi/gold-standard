@@ -44,18 +44,18 @@
     "@eslint/js": "^9.39.2",
     "@tailwindcss/vite": "^4.2.4",
     "@workspace/prettier-config": "workspace:*",
+    "@workspace/eslint-config": "workspace:*",
     "@workspace/tsconfig": "workspace:*",
     "@turbo/gen": "^2.8.1",
     "@types/node": "^24.12.3",
     "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",
-    "eslint": "^9.39.2",
+    "eslint": "^10.3.0",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^17.2.0",
     "tailwindcss": "^4.2.4",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.59.1"
+    "typescript": "^6.0.3"
   },
   "exports": {
     "./globals.css": "./src/styles/globals.css",
