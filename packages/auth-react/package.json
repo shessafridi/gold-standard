@@ -34,8 +34,10 @@
   "devDependencies": {
     "@tanstack/react-query": "^5.99.0",
     "@types/react": "^19.2.14",
+    "@workspace/eslint-config": "workspace:*",
     "@workspace/prettier-config": "workspace:*",
     "@workspace/tsconfig": "workspace:*",
+    "eslint": "10.3.0",
     "tsdown": "^0.22.0",
     "zustand": "^5.0.12"
   },
