@@ -207,7 +207,7 @@ export function SignUpForm() {
 
           <CardFooter className='justify-between gap-4'>
             {register.isError && (
-              <div className='text-destructive text-sm'>
+              <div className='text-sm text-destructive'>
                 {register.error.message || 'Registration failed'}
               </div>
             )}
