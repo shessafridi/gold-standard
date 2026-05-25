@@ -8,7 +8,7 @@ type Props = {
   router: ComponentProps<
     typeof TanstackRouterProvider<RegisteredRouter>
   >['router'];
-}
+};
 
 export default function RouterProvider({ router }: Props) {
   const status = useAuth(s => s.status);

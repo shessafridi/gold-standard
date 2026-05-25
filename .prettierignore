@@ -6,3 +6,5 @@ pnpm-lock.yaml
 .pnpm-store/
 
 .agents
+
+routeTree.gen.ts

@@ -39,4 +39,4 @@ export type Transport<TChannel extends NotificationChannel> = {
     channel: TChannel,
     content: TransportContent[TChannel['type']]
   ): Promise<void>;
-}
+};

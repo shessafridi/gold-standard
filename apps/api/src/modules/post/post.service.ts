@@ -1,10 +1,10 @@
-import { NotFoundError } from "@/shared/errors";
+import { NotFoundError } from '@/shared/errors';
 
-import type { CreatePostInput } from "@workspace/api-schemas/post";
+import type { CreatePostInput } from '@workspace/api-schemas/post';
 
-import type { PostRepository } from "./post.repository";
-import { buildPostDto } from "./post.dto";
-import { postRepository } from "./post.repository";
+import type { PostRepository } from './post.repository';
+import { buildPostDto } from './post.dto';
+import { postRepository } from './post.repository';
 
 export class PostService {
   private readonly repository: PostRepository;
@@ -26,7 +26,7 @@ export class PostService {
     const post = await this.repository.findById(id);
 
     if (!post) {
-      throw new NotFoundError("Post not found");
+      throw new NotFoundError('Post not found');
     }
 
     return buildPostDto(post);
