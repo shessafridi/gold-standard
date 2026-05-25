@@ -288,8 +288,8 @@ import type {
   UpdateProjectInput,
 } from '@workspace/api-schemas/project';
 
-import { buildProjectDto } from './project.dto';
 import type { ProjectRepository } from './project.repository';
+import { buildProjectDto } from './project.dto';
 import { projectRepository as projectRepositorySingleton } from './project.repository';
 
 export class ProjectService {
@@ -355,9 +355,11 @@ import { authed } from '@/orpc';
 import { projectService } from '../project.service';
 
 export const projectRouter = authed.project.router({
-  create: authed.project.create.handler(async ({ input, context: { user } }) => {
-    return projectService.create(input, user.id);
-  }),
+  create: authed.project.create.handler(
+    async ({ input, context: { user } }) => {
+      return projectService.create(input, user.id);
+    }
+  ),
 
   getById: authed.project.getById.handler(async ({ input }) => {
     return projectService.getById(input.id);

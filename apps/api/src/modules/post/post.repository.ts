@@ -1,5 +1,5 @@
-import type { Post, Prisma } from "@workspace/db";
-import { prisma } from "@workspace/db";
+import type { Post, Prisma } from '@workspace/db';
+import { prisma } from '@workspace/db';
 
 type CreatePostInput = Prisma.PostCreateInput;
 
