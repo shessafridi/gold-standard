@@ -1,5 +1,5 @@
 import type { VariantProps } from 'class-variance-authority';
-import * as React from 'react';
+import type * as React from 'react';
 import { mergeProps } from '@base-ui/react/merge-props';
 import { useRender } from '@base-ui/react/use-render';
 import { cva } from 'class-variance-authority';

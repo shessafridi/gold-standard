@@ -16,12 +16,10 @@ export function AuthProvider({
 }) {
   const storeRef = useRef<AuthStore | null>(null);
 
-  if (storeRef.current === null) {
-    storeRef.current = createAuthStore(storage);
-  }
+  storeRef.current ??= createAuthStore(storage);
 
   useEffect(() => {
-    storeRef.current!.getState().hydrate();
+    void storeRef.current?.getState().hydrate();
   }, []);
 
   return (
