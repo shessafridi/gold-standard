@@ -14,7 +14,10 @@
     "db:push": "turbo run db:push"
   },
   "devDependencies": {
+    "@turbo/gen": "^2.9.14",
+    "@types/node": "^24.12.3",
     "@workspace/prettier-config": "workspace:*",
+    "@workspace/tsconfig": "workspace:*",
     "prettier": "^3.7.4",
     "turbo": "^2.9.14",
     "typescript": "6.0.3"

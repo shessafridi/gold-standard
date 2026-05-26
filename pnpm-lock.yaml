@@ -7,9 +7,18 @@ settings:
 importers:
   .:
     devDependencies:
+      '@turbo/gen':
+        specifier: ^2.9.14
+        version: 2.9.14(@types/node@24.12.4)
+      '@types/node':
+        specifier: ^24.12.4
+        version: 24.12.4
       '@workspace/prettier-config':
         specifier: workspace:*
         version: link:tooling/prettier
+      '@workspace/tsconfig':
+        specifier: workspace:*
+        version: link:tooling/typescript
       prettier:
         specifier: ^3.7.4
         version: 3.7.4
