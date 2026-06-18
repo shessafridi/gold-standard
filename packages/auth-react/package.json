@@ -5,17 +5,15 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsdown",
-    "dev": "tsdown --watch --no-clean",
+    "build": "tsc",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "dev": "tsc --watch",
     "lint": "eslint",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "typecheck": "tsc --noEmit"
   },
   "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    }
+    ".": "./src/index.ts"
   },
   "sideEffects": false,
   "keywords": [],
@@ -38,7 +36,6 @@
     "@workspace/prettier-config": "workspace:*",
     "@workspace/tsconfig": "workspace:*",
     "eslint": "10.3.0",
-    "tsdown": "^0.22.0",
     "zustand": "^5.0.12"
   },
   "prettier": "@workspace/prettier-config"
